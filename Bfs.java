@@ -1,10 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 
 public class Bfs {	
 	static void bfs(int[][] adjacencyMatrix, String fileName) throws IOException {
@@ -37,9 +34,6 @@ public class Bfs {
 				}				
 			}
 		}	
-		System.out.println("The BFS reached a total of "+nodeCounter+" nodes.");
-		          
-	}
-	
-		
+		System.out.println("The BFS reached a total of "+nodeCounter+" nodes.");		          
+	}		
 }

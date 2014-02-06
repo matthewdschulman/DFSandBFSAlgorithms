@@ -1,11 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
-
 
 public class Dfs {	
 	public static void dfs(int[][] adjacencyMatrix, String fileName) throws IOException {
@@ -35,7 +32,4 @@ public class Dfs {
         System.out.println();
         System.out.println("The DFS reached a total of "+nodeCounter+" nodes.");
 	}       
-	
-    
-
 }

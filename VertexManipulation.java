@@ -54,6 +54,5 @@ public class VertexManipulation {
 		}
 		return -1;
 	}
-
 }
 
