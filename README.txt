@@ -1,0 +1,3 @@
+README
+
+To run the program, follow the I/O commands prompted to the user: which file to search (must be in the src folder), what kind of search, and the starting node. The output for the BFS includes each wave, the size of each wave, the total number of nodes reached, and the times for the upload and BFS. Note that the program runs a BFS and DFS for both an adjacency matrix and for a list. The output for the DFS lists the order in which the nodes are searched and also includes the same timing and counting information as the BFS.
