@@ -1,14 +1,11 @@
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class Bfs {	
-	static void bfs(int[][] adjacencyMatrix, String fileName) throws IOException {
-		int numOfUsers = VertexManipulation.numOfUsers(fileName);
-		Scanner scanner = new Scanner( System.in );
-        System.out.println("At which user would you like to start? Please enter an integer between 0 and "+(numOfUsers));
-        int firstNode = Integer.parseInt(scanner.nextLine());
+	@SuppressWarnings("rawtypes")
+	static void bfs(int[][] adjacencyMatrix, LinkedList[] adjacencyLines, 
+			boolean trueIfMatrix, String fileName, int numOfUsers, int firstNode) throws IOException {
 		Queue<Integer> queueCur = new LinkedList<Integer>();
 		Queue<Integer> queueNext = new LinkedList<Integer>();
 		Queue<Integer> alreadyVisited = new LinkedList<Integer>();
@@ -17,7 +14,8 @@ public class Bfs {
 		int waveCounter = 0;
 		int nodeCounter = 0;
 		while (!queueNext.isEmpty()) {
-			System.out.println("Wave # "+waveCounter+" has length "+queueNext.size()+" | elements : "+queueNext);
+			System.out.println("Wave # "+waveCounter+" has length "+queueNext.size()+
+					" | elements : "+queueNext);
 			nodeCounter+=queueNext.size();
 			waveCounter++;
 			queueCur.addAll(queueNext);
@@ -25,7 +23,7 @@ public class Bfs {
 			while (!queueCur.isEmpty()) {
 				int curNodeToSearch = queueCur.remove();
 				for (int i = (0); i <= numOfUsers; i++) {
-					if (adjacencyMatrix[curNodeToSearch][i] == 1) {
+					if (contains(curNodeToSearch, i, trueIfMatrix, adjacencyMatrix, adjacencyLines)) {
 						if (!alreadyVisited.contains(i)){
 							queueNext.add(i);
 							alreadyVisited.add(i);
@@ -35,5 +33,18 @@ public class Bfs {
 			}
 		}	
 		System.out.println("The BFS reached a total of "+nodeCounter+" nodes.");		          
-	}		
+	}
+
+	@SuppressWarnings("rawtypes")
+	private static boolean contains(int curNodeToSearch, int i, boolean trueIfMatrix, 
+			int[][] adjacencyMatrix, LinkedList[] adjacencyLines) {
+		if (trueIfMatrix) {
+			if (adjacencyMatrix[curNodeToSearch][i] == 1) return true;
+			else return false;
+		}
+		else {
+			if (adjacencyLines[curNodeToSearch].contains(i)) return true;
+			else return false;
+		}
+	}
 }
