@@ -19,7 +19,7 @@ public class VertexManipulation {
         }     		
 	}
 
-	public static int[][] uploadFile(String fileName) throws IOException {		
+	public static int[][] uploadFileMatrix(String fileName) throws IOException {		
 		int numOfUsers = numOfUsers(fileName) + 1;
 		System.out.println("numOfUsers = "+numOfUsers);
 		int[][] adjacencyMatrix = new int[numOfUsers+1][numOfUsers+1];

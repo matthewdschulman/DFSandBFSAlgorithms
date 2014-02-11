@@ -9,7 +9,7 @@ public class FacebookSearch {
 		System.out.println("Which file would you like to search?");
 		fileName = scanner.nextLine();
 		fileName = "/Users/Matt/Documents/Penn_2013-2014/Spring/NETS-150/HW1-FacebookNodes/src/"+fileName;
-		int[][] adjacencyMatrix = VertexManipulation.uploadFile(fileName);
+		int[][] adjacencyMatrix = VertexManipulation.uploadFileMatrix(fileName);
 		System.out.println("Would you like to do a DFS or BFS? Please enter either 'BFS' or 'DFS'");
         String searchType = scanner.nextLine();
         if (searchType.equals("BFS")) {
